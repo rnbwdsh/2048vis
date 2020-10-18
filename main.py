@@ -8,7 +8,7 @@ from itertools import product, chain
 BIN_CNT = 12
 BINS = [0] + [2**i for i in range(1, BIN_CNT)]
 BIN_ = ['cnt' + str(i) for i in BINS]
-FIELD_ = ['a' + str(i) for i in range(16)]
+FIELD_ = ['a' + str(i) for i in range(9)]
 FIELD_NAMES = ','.join(FIELD_)
 BIN_NAMES = ','.join(BIN_)
 ALGO = ["random", "reward-greedy", "lookahead-1-zeros", "lookahead-2-zeros", "lookahead-3-zeros"]
@@ -42,8 +42,7 @@ def explore(params):
     algo, repeat_nr = params
     lookahead = ALGO.index(algo) - 1
     states = []
-    env = gym.make('2048-v0')
-    done = False
+    env = gym.make('2048-v0', width=3, height=3)
     moves = 0
     total_reward = 0
     for step in range(9999999):
