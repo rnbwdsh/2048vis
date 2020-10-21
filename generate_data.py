@@ -7,16 +7,14 @@ import numpy as np
 from multiprocessing import Pool
 from itertools import product, chain
 
-FIELD_SIZE = 4
+FIELD_SIZE = 3
 BIN_CNT = FIELD_SIZE*(FIELD_SIZE-1)
 BINS = [0] + [2**i for i in range(1, BIN_CNT)]
 BIN_ = ['cnt' + str(i) for i in BINS]
 FIELD_ = ['a' + str(i) for i in range(FIELD_SIZE*FIELD_SIZE)]
 FIELD_NAMES = ','.join(FIELD_)
 BIN_NAMES = ','.join(BIN_)
-ALGO = ["random", "reward-greedy", "lookahead-1-zeros", "lookahead-2-zeros", "lookahead-3-zeros"]
-MARKERS = dict(zip(ALGO, "oX^s*"))  # circle, cross, triangle, square, start
-COLORS = dict(zip(ALGO, ["green", "yellow", "red", "purple", "blue"]))  # circle, cross, triangle, square, start
+ALGO = ["random", "reward-greedy", "zeros-la-1", "zeros-la-2", "zeros-la-3"]
 RUNS_PER_ALGO = 10
 
 
